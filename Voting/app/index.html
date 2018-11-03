@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voting DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="container">
+  <h1>BlockChain voting</h1>
+  <br/><br/>
+  <h4>Voting through <input id="MetaMaskButton" type="button" value="MetaMask" onclick="App.connectByMetamask()" class="btn btn-primary" size="5"/>You need Metamask started, so you can choose the account.</h4>
+  <h4>Voting <input id="DirectlyButton" type="button" value="Directly" onclick="App.connectDirectly()" class="btn btn-primary" size="5"/>
+     You only can vote as a coinbse account.</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Eva</td>
+          <td id="option-1"></td>
+        </tr>
+        <tr>
+          <td>Uri</td>
+          <td id="option-2"></td>
+        </tr>
+        <tr>
+          <td>Pep</td>
+          <td id="option-3"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <input type="text" id="candidate" />
+  <input id="voteLink" type="button" value="Vote" onclick="App.voteForCandidate()" class="btn btn-primary" size="10"/> 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+  <input id="refreshLink" type="button" value="Refresh" onclick="App.refreshAllCandidate()" class="btn btn-primary"/>
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="./app.js"></script>
+</html>
