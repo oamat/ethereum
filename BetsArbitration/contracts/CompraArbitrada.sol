@@ -1,22 +1,22 @@
-pragma solidity ^0.4.18;
+pragma solidity >0.4.99 <0.6.0;
 
-/* SMART CONTRACT de pruebas, que permite realizar una compra y que este sea validado por un arbitro, 
-o bien por el propio comprador, hasta entonces el dinero no irá al Vendedor */
+// SMART CONTRACT de pruebas, que permite realizar una compra y que este sea validado por un arbitro,
+// o bien por el propio comprador, hasta entonces el dinero no irá al Vendedor */
 
 contract CompraArbitrada {
 
-    address public comprador;
-    address public vendedor;
-    address public arbitro;
-        
-    constructor ( address _vendedor, address _arbitro) public { //recibe quien es el comprador, vendedor y arbitro.
+    address payable public comprador;
+    address payable public vendedor;
+    address payable public arbitro;
+
+    constructor ( address payable _vendedor, address payable _arbitro) public { //recibe quien es el comprador, vendedor y arbitro.
         comprador = msg.sender;
         vendedor = _vendedor;
         arbitro = _arbitro;
     }
-           
+
     function compra()  public payable { //Recibe from y value (payable), value irá temporalmente a la dirección del contrato (smartContract).
-        require (msg.sender == comprador);
+        require (msg.sender == comprador, "ERROR: sender is diferent than comprador");
     }
 
     function pagarAlVendedor() public { //Recibe from, transferirá al vendedor el dinero del contrato.
@@ -30,28 +30,25 @@ contract CompraArbitrada {
             comprador.transfer(address(this).balance);
         }
     }
-    
-
 
 /** FUNCIONES INFORMATIVAS, NO RELEVANTES */
 
     function obtenerBalanceContrato() public view returns (uint) {
-        return address(this).balance;        
+        return address(this).balance;
     }
-    
+
     function obtenerBalanceComprador() public view returns (uint) {
-        return address(comprador).balance;        
+        return address(comprador).balance;
     }
 
     function obtenerBalanceVendedor() public view returns (uint) {
-        return address(vendedor).balance;        
+        return address(vendedor).balance;
     }
-    
 
     function obtenerDireccionContrato() public view returns (address) {
         return address(this);
     }
-    
+
     function obtenerDireccionComprador() public view returns (address) {
         return address(comprador);
     }
@@ -63,5 +60,5 @@ contract CompraArbitrada {
     function obtenerDireccionVendedor() public view returns (address) {
         return address(vendedor);
     }
-    
+
 }

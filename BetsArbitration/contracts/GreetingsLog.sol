@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity >0.4.99 <0.6.0;
 
 contract GreetingsLog {
     string message;
@@ -16,37 +16,36 @@ contract GreetingsLog {
 
 
     constructor() public {
-        message = "Are you ready?";        
+        message = "Are you ready?";
     }
 
-    event log(uint value, address sender, address coinbase, uint difficulty, uint gaslimit, uint number, 
+    event logGreetings(uint value, address sender, address coinbase, uint difficulty, uint gaslimit, uint number,
     uint256 gasLeft, bytes data, bytes4 sig, uint rightNow, uint gasprice );  //para escribir logs
 
     function payableFunction() public payable{
         value = msg.value;
         sender = msg.sender;
-        coinbase = block.coinbase;     
+        coinbase = block.coinbase;
         difficulty = block.difficulty;
         gaslimit = block.gaslimit;
         number = block.number;
         gasLeft = gasleft();
         data = msg.data;
         sig = msg.sig;
-        rightNow = block.timestamp;
-        gasprice = tx.gasprice;   
+        rightNow = block.number; //block.timestamp;
+        gasprice = tx.gasprice;
 
-        
     }
 
     function writeLog() public {
-        emit log(value,  sender, coinbase, difficulty, gaslimit, number, gasLeft, data, sig, rightNow, gasprice);
+        emit logGreetings(value,  sender, coinbase, difficulty, gaslimit, number, gasLeft, data, sig, rightNow, gasprice);
     }
 
-    function setGreetings(string _message) public {
+    function setGreetings(string memory _message ) public {
         message = _message;
     }
 
-    function getGreetings() public view returns (string) {
+    function getGreetings() public view returns (string memory) {
         return message;
     }
 }

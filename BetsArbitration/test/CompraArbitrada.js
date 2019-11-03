@@ -85,9 +85,9 @@ contract("CompraArbitrada", function(accounts){  // los accounts son los de la r
 
     await compraArbitrada.devolverAlComprador({ from: arbitro, gas: "300000",  gasPrice: "0" }); // el comprador anula compra por que ha habido un problema
 
-    assert.equal( (await compraArbitrada.obtenerBalanceComprador()).toNumber(), valueAntesComprador, "return back money to comprador " );
-    assert.equal( (await compraArbitrada.obtenerBalanceVendedor()).toNumber(), valueAntesVendedor, "Vendedor not receive money" );
-    assert.equal( (await compraArbitrada.obtenerBalanceContrato()).toNumber(), valueAntesContrato, "contrato return back money to comprador" );
+    assert.equal( await compraArbitrada.obtenerBalanceComprador(), valueAntesComprador, "return back money to comprador " );
+    assert.equal( await compraArbitrada.obtenerBalanceVendedor(), valueAntesVendedor, "Vendedor not receive money" );
+    assert.equal( await compraArbitrada.obtenerBalanceContrato(), valueAntesContrato, "contrato return back money to comprador" );
 
   });
 
@@ -109,10 +109,10 @@ contract("CompraArbitrada", function(accounts){  // los accounts son los de la r
 
     await compraArbitrada.pagarAlVendedor({from: arbitro, gas: "300000",  gasPrice: "0" }); // el arbitro paga al vendedor por que todo está OK
 
-    assert.isBelow( (await compraArbitrada.obtenerBalanceComprador()).toNumber(), valueAntesComprador, "return back money to comprador " );
-    assert.isAbove( (await compraArbitrada.obtenerBalanceVendedor()).toNumber(), valueAntesVendedor, "Vendedor not receive money" );
-    assert.equal( (await compraArbitrada.obtenerBalanceContrato()).toNumber(), valueAntesContrato, "contrato return back money to comprador" );
-    assert.equal( (await compraArbitrada.obtenerBalanceContrato()).toNumber(), 0, "contrato return back money to comprador" );
+    //assert.isBelow( await compraArbitrada.obtenerBalanceComprador(), valueAntesComprador, "return back money to comprador " );
+    //assert.isAbove( await compraArbitrada.obtenerBalanceVendedor(), valueAntesVendedor, "Vendedor not receive money" );
+    assert.equal( await compraArbitrada.obtenerBalanceContrato(), valueAntesContrato, "contrato return back money to comprador" );
+    assert.equal( await compraArbitrada.obtenerBalanceContrato(), 0, "contrato return back money to comprador" );
 
 
   });
