@@ -20,4 +20,4 @@ I changed or created this files:
 /test/Apuestas.js
 /test/CompraArbitrada.js
 /test/GreetingsLog.js
-/test/SimpleWeb3Transactions.js  (test with web3 conection for frontEnd clients)
+

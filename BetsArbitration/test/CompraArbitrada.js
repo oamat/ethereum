@@ -1,4 +1,8 @@
 // contract to be tested
+// SMART CONTRACT de pruebas, que permite realizar una compra y que este sea validado por un arbitro,
+// o bien por el propio comprador, hasta no ser aprobada el dinero no irá al Vendedor.
+// Si se deniega se devuelve el dinero al comprador */
+
 /******  With Ganache started 
  * 
  * use:

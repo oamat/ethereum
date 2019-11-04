@@ -1,5 +1,7 @@
 pragma solidity >0.4.99 <0.6.0;
 
+// SMART CONTRACT for migration */
+
 contract Migrations {
   address public owner;
   uint public last_completed_migration;

@@ -1,5 +1,7 @@
 
 // contract to be tested
+// SMART CONTRACT de pruebas, que permite que un jugador1 realice una apuesta,
+// que otro jugador2 acepte la apuesta y que gane alguien aleatoriamente.  **/
 
 /******  With Ganache started 
  * 
