@@ -37,6 +37,8 @@ contract GreetingsLog {
         return address(this);
     }
 
+//Método fallback, método vacío y payable que coge cualquier transacción que envíen a este conrato
+//función que es fallback, se hace por si un usuario envía dinero a la address. Así no se pierde el pago.
     function payableFunction() public payable{
         value = msg.value;
         sender = msg.sender;

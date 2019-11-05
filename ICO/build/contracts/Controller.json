@@ -21,32 +21,36 @@
       "type": "function"
     }
   ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_th\",\"type\":\"address\"}],\"name\":\"proxyPayment\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controller.sol\":\"Controller\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controller.sol\":{\"keccak256\":\"0x556aa455dabaee79d9705f40c02a6b2aae2cf720df28a2a37f1a40f3a4acc2e9\",\"urls\":[\"bzzr://fdf9d4cccabaa139032ee8c47446a841ee9295ebac35aabb6ca48b347c0c93b5\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.13;\r\n\r\n// Controller for ICO\r\ncontract Controller {  // contrato controlador función proxy payment\r\n    function proxyPayment(address _th) payable public returns (bool);  \r\n}\r\n",
-  "sourcePath": "C:\\Users\\Oriol\\Downloads\\solidity\\BlockChainEthereumICO\\contracts\\Controller.sol",
+  "source": "pragma solidity >0.4.99 <0.6.0;\n\n// Interfaz Controller for ICO\ncontract Controller {  // contrato controlador función proxy payment\n\n    //este métodod recibira una dirección y es payable\n    function proxyPayment(address _th) external payable returns (bool);\n}\n",
+  "sourcePath": "C:\\Users\\Oriol\\Downloads\\ethereum\\projects\\ICO\\contracts\\Controller.sol",
   "ast": {
-    "absolutePath": "/C/Users/Oriol/Downloads/solidity/BlockChainEthereumICO/contracts/Controller.sol",
+    "absolutePath": "/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controller.sol",
     "exportedSymbols": {
       "Controller": [
-        46
+        47
       ]
     },
-    "id": 47,
+    "id": 48,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 38,
+        "id": 39,
         "literals": [
           "solidity",
-          "^",
+          ">",
           "0.4",
-          ".13"
+          ".99",
+          "<",
+          "0.6",
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:1"
+        "src": "0:31:1"
       },
       {
         "baseContracts": [],
@@ -54,9 +58,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 46,
+        "id": 47,
         "linearizedBaseContracts": [
-          46
+          47
         ],
         "name": "Controller",
         "nodeType": "ContractDefinition",
@@ -64,24 +68,23 @@
           {
             "body": null,
             "documentation": null,
-            "id": 45,
+            "id": 46,
             "implemented": false,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [],
             "name": "proxyPayment",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 41,
+              "id": 42,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 40,
+                  "id": 41,
                   "name": "_th",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45,
-                  "src": "148:11:1",
+                  "scope": 46,
+                  "src": "218:11:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -89,10 +92,11 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 39,
+                    "id": 40,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "148:7:1",
+                    "src": "218:7:1",
+                    "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -102,20 +106,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "147:13:1"
+              "src": "217:13:1"
             },
-            "payable": true,
             "returnParameters": {
-              "id": 44,
+              "id": 45,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 43,
+                  "id": 44,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45,
-                  "src": "185:4:1",
+                  "scope": 46,
+                  "src": "257:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -123,10 +126,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 42,
+                    "id": 43,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "185:4:1",
+                    "src": "257:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -136,41 +139,44 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "184:6:1"
+              "src": "256:6:1"
             },
-            "scope": 46,
-            "src": "126:65:1",
+            "scope": 47,
+            "src": "196:67:1",
             "stateMutability": "payable",
             "superFunction": null,
-            "visibility": "public"
+            "visibility": "external"
           }
         ],
-        "scope": 47,
-        "src": "51:145:1"
+        "scope": 48,
+        "src": "64:201:1"
       }
     ],
-    "src": "0:198:1"
+    "src": "0:266:1"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/Oriol/Downloads/solidity/BlockChainEthereumICO/contracts/Controller.sol",
+    "absolutePath": "/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controller.sol",
     "exportedSymbols": {
       "Controller": [
-        46
+        47
       ]
     },
-    "id": 47,
+    "id": 48,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 38,
+        "id": 39,
         "literals": [
           "solidity",
-          "^",
+          ">",
           "0.4",
-          ".13"
+          ".99",
+          "<",
+          "0.6",
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:1"
+        "src": "0:31:1"
       },
       {
         "baseContracts": [],
@@ -178,9 +184,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 46,
+        "id": 47,
         "linearizedBaseContracts": [
-          46
+          47
         ],
         "name": "Controller",
         "nodeType": "ContractDefinition",
@@ -188,24 +194,23 @@
           {
             "body": null,
             "documentation": null,
-            "id": 45,
+            "id": 46,
             "implemented": false,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [],
             "name": "proxyPayment",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 41,
+              "id": 42,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 40,
+                  "id": 41,
                   "name": "_th",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45,
-                  "src": "148:11:1",
+                  "scope": 46,
+                  "src": "218:11:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -213,10 +218,11 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 39,
+                    "id": 40,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "148:7:1",
+                    "src": "218:7:1",
+                    "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -226,20 +232,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "147:13:1"
+              "src": "217:13:1"
             },
-            "payable": true,
             "returnParameters": {
-              "id": 44,
+              "id": 45,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 43,
+                  "id": 44,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45,
-                  "src": "185:4:1",
+                  "scope": 46,
+                  "src": "257:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -247,10 +252,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 42,
+                    "id": 43,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "185:4:1",
+                    "src": "257:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -260,26 +265,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "184:6:1"
+              "src": "256:6:1"
             },
-            "scope": 46,
-            "src": "126:65:1",
+            "scope": 47,
+            "src": "196:67:1",
             "stateMutability": "payable",
             "superFunction": null,
-            "visibility": "public"
+            "visibility": "external"
           }
         ],
-        "scope": 47,
-        "src": "51:145:1"
+        "scope": 48,
+        "src": "64:201:1"
       }
     ],
-    "src": "0:198:1"
+    "src": "0:266:1"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-23T14:58:49.142Z"
+  "schemaVersion": "3.0.17",
+  "updatedAt": "2019-11-05T15:01:47.174Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
 }

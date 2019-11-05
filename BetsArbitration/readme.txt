@@ -7,7 +7,7 @@ start Ganache
 truffle compile
 truffle migrate --network ganache
 truffle test .\test\[name].js
-truffle test  (truffle migrate is unnecessary)
+truffle test --network ganache  (truffle migrate is unnecessary)
 
 
 **DEVELOPMENT short guide

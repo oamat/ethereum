@@ -8,7 +8,7 @@ FrontEnd doesn't exist yet, you can only do the test so far.
 start Ganache
 truffle compile
 truffle migrate --network ganache
-truffle test  (truffle migrate is unnecessary )
+truffle test --network ganache (truffle migrate is unnecessary )
 
 
 
