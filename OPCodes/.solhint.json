@@ -1,6 +1,6 @@
 {
   "extends": "solhint:default",
   "rules": {
-    "no-inline-assembly" : "false"
-  }
+    "block.timestamp" : "false"
+  }  
 }

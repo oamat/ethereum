@@ -49,7 +49,7 @@ contract GreetingsLog {
         gasLeft = gasleft();
         data = msg.data;
         sig = msg.sig;
-        rightNow = block.number; //block.timestamp;
+        rightNow = block.timestamp;
         gasprice = tx.gasprice;
     }
 
