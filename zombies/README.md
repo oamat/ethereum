@@ -11,7 +11,9 @@ start Ganache
 truffle compile
 truffle migrate --network ganache
     !!Copy contract address of log and paste to zombieFactory.js
+
 node .\src\zombieFactory.js    (as a posible frontEnd or BE)
-node .\test\zombieFactory.js    (typical basic test)
+
+truffle test .\test\zombieFactory.js --network ganache   (typical basic test)
 
 
