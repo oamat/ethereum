@@ -10,7 +10,7 @@ Test with Web3 Transaction against Ganache
 start Ganache
 truffle compile
 truffle migrate --network ganache
-Copy contract 
+Copy contract address to zombieFactory.js
 node .\test\zombieFactory.js
 
 
