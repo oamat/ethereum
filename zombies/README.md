@@ -11,6 +11,6 @@ start Ganache
 truffle compile
 truffle migrate --network ganache
 Copy contract 
-node .\src\zombieFactory.js
+node .\test\zombieFactory.js
 
 
