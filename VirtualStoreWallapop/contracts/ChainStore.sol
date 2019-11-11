@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity >0.4.99 <0.6.0;
 
 import "./Ownable.sol";
 
@@ -24,7 +24,7 @@ contract ChainStore is Ownable {
     string _name,
     uint256 _price
   );
-  
+
   //Log event buy
   event LogBuyArticle(
     uint indexed _id,
@@ -40,7 +40,7 @@ contract ChainStore is Ownable {
   }
 
   // sell an article
-  function sellArticle(string _name, string _description, uint256 _price) public {
+  function sellArticle(string memory _name, string memory _description, uint256 _price) public {
     // a new article has a new id, id is the last articleCounter.
     articleCounter++;
 
@@ -63,7 +63,7 @@ contract ChainStore is Ownable {
   }
 
   // fetch and return all article IDs for articles still for sale
-  function getArticlesForSale() public view returns (uint[]) {
+  function getArticlesForSale() public view returns (uint[] memory) {
     // prepare output array
     uint[] memory articleIds = new uint[](articleCounter);
           //The Ethereum Virtual Machine has three areas where it can store items.
@@ -97,24 +97,24 @@ contract ChainStore is Ownable {
   }
 
   // buy an article
-  function buyArticle(uint _id) payable public {
+  function buyArticle(uint _id) external payable {
     // we check whether there is an article for sale
-    require(articleCounter > 0);
+    require(articleCounter > 0, "ERROR: articleCounter is invalid (<0).");
 
     // we check that the article exists
-    require(_id > 0 && _id <= articleCounter);
+    require(_id > 0 && _id <= articleCounter,"ERROR: article id is invalid.");
 
     // we retrieve the article
     Article storage article = articles[_id];
 
     // we check that the article has not been sold yet
-    require(article.buyer == 0X0);
+    require(article.buyer == address(0x0),"ERROR: article has been sold.");
 
     // we don't allow the seller to buy his own article
-    require(msg.sender != article.seller);
+    require(msg.sender != article.seller,"ERROR: we don't allow the seller to buy his own article.");
 
     // we check that the value sent corresponds to the price of the article
-    require(msg.value == article.price);
+    require(msg.value == article.price,"ERROR: the value doesn't corresponds to the price of the article.");
 
     // keep buyer's information
     article.buyer = msg.sender;

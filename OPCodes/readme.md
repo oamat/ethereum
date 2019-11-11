@@ -1,5 +1,4 @@
-BlockChain ICO (Initial Coin Offering) Example application with Ethereum & Solidity. 
-I use the standard  ERC20 for ETHEREUM tokens
+BlockChain OPCodes Example application with Ethereum & Solidity. 
 
 FrontEnd doesn't exist yet, you can only do the test so far.
 
@@ -8,14 +7,15 @@ FrontEnd doesn't exist yet, you can only do the test so far.
 start Ganache
 truffle compile
 truffle migrate --network ganache
-truffle test --network ganache (truffle migrate is unnecessary )
+Copy & paste address contract in /test/*.js  (before truffle test...)
+truffle test .\test\CallContract.js --network ganache
 
 
 
 **DEVELOPMENT short guide
 I changed or created this files:
 truffle init
-/truffle.js
+/truffle-config.js
 /contracts/*
 /test/*
 /migrations/2_deploy_contracts.js (we call constructor method in deploy);

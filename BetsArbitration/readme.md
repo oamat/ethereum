@@ -12,12 +12,8 @@ truffle test --network ganache  (truffle migrate is unnecessary)
 
 **DEVELOPMENT short guide
 I changed or created this files:
-/truffle.js
-/contracts/Apuestas.sol
-/contracts/CompraArbitrada.sol
-/contracts/GreetingsLog.sol
+/truffle-config.js
+/contracts/*
 /migrations/2_deploy_contracts.js (we call constructor method in deploy);
-/test/Apuestas.js
-/test/CompraArbitrada.js
-/test/GreetingsLog.js
+/test/*
 
