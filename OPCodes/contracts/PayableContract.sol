@@ -19,10 +19,10 @@ contract PayableContract{
         message = "Are you ready?";
     }
 
-    event log(uint value, address sender, address coinbase, uint difficulty, uint gaslimit, uint number,
+    event PayableFunctionEvent(uint value, address sender, address coinbase, uint difficulty, uint gaslimit, uint number,
     uint256 gasLeft, bytes data, bytes4 sig, uint rightNow, uint gasprice );  //para escribir logs
 
-    function payableFunction() public payable{
+    function payableFunction() public payable{ //this is the playable function, always need 
         value = msg.value;
         sender = msg.sender;
         coinbase = block.coinbase;
@@ -35,7 +35,7 @@ contract PayableContract{
         rightNow = block.timestamp;
         gasprice = tx.gasprice;
 
-        emit log(value,  sender, coinbase, difficulty, gaslimit, number, gasLeft, data, sig, rightNow, gasprice);
+        emit PayableFunctionEvent(value,  sender, coinbase, difficulty, gaslimit, number, gasLeft, data, sig, rightNow, gasprice);
     }
 
     function setGreetings(string memory _message) public {

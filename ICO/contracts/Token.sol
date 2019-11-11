@@ -36,15 +36,11 @@ contract Token is Controlled { //El contrato token está controlado por alguien,
     }
 
     function doTransfer (address _from, address _to, uint256 _value) internal returns (bool) {
-        if (_value == 0) { //No hay nada que transferir
-            return true;
-        }
+        require (_value != 0,"ERROR: value cannot be 0. ");
         require ((_to != address(0x0)) && (_to != address(this)),"ERROR: address and token don't be 0");
         //destinatario no puede ser 0, ni el contrato Token
         uint previousBalanceFrom = balanceOf(_from); //recuperamos balance inicial del _from
-        if (previousBalanceFrom < _value) { //comprobamos que el balance del from sea mayor que value, si es menor cancelamos transfer
-            return false;
-        }
+        require (previousBalanceFrom < _value,"ERROR: balance from needs to be greater than value.");
         balances[_from] = balances[_from] - _value; //restamos al balance de _from el valor que se quiere transferir
 
         uint previousBalanceTo = balanceOf(_to); //recuperamos balance de _to

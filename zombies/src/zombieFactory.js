@@ -17,15 +17,17 @@ var fs = require('fs');
 var path = "./build/contracts/ZombieFactory.json";
 var json = JSON.parse(fs.readFileSync(path));
 var abi = json.abi; /* abi generado por el compilador solc usando truffle */
-var contractAddress = "0x310E6BD3CB00Fb8474C6B752684bcfe17ed6fc56"; /* nuestra dirección del contrato en Ethereum después de implementarlo */
-
+//var contractAddress = "0x310E6BD3CB00Fb8474C6B752684bcfe17ed6fc56"; /* nuestra dirección del contrato en Ethereum después de implementarlo */
+var contractAddress = "0xEE9e6c048667120200b47cBBa56Ad3C64054A3B5";
 var name = "MyNameOAF"; // a testing name
 
 web3.eth.getAccounts().then(async (accounts) => {
   var from = accounts[0];
   console.log(" Wallet address : " + from);
 
-  var zombieFactory = await new web3.eth.Contract(abi, contractAddress, from); //instanciamos el contrato
+  var zombieFactory = await new web3.eth.Contract(abi, contractAddress, from, (error, result) =>{
+    if (error) console.log ("***** ERROR *****" + error.message);
+     }); //instanciamos el contrato
   console.log(" Smart Contract address : " + zombieFactory.options.address);    //we need to use myContract.methods.myMethod().send() or -> myContract.methods.myMethod().send()
 
 
@@ -57,13 +59,11 @@ web3.eth.getAccounts().then(async (accounts) => {
   console.log(await generateZombie(zombie.id, zombie.name, zombie.dna));
 
 
+  //** Events doesn't work yet, with truffle 5.0 ***/
+
   // zombieFactory.events.allEvents((error, event) => {
-  //   if (error) {
-  //     console.error(error)
-  //     return false
-  //   }
-  
-  //   console.log(event)
+  //   if (error) console.error(error);  
+  //   console.log(event);
   // });
 
 

@@ -2,18 +2,10 @@
   "contractName": "Owned",
   "abi": [
     {
-      "constant": true,
       "inputs": [],
-      "name": "owner",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
       "payable": false,
-      "stateMutability": "view",
-      "type": "function"
+      "stateMutability": "nonpayable",
+      "type": "constructor"
     },
     {
       "constant": true,
@@ -21,6 +13,7 @@
       "name": "newOwner",
       "outputs": [
         {
+          "internalType": "address payable",
           "name": "",
           "type": "address"
         }
@@ -30,15 +23,25 @@
       "type": "function"
     },
     {
+      "constant": true,
       "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
       "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "constructor"
+      "stateMutability": "view",
+      "type": "function"
     },
     {
       "constant": false,
       "inputs": [
         {
+          "internalType": "address payable",
           "name": "_newOwner",
           "type": "address"
         }
@@ -59,11 +62,11 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"changeOwner\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"newOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"details\":\"`Owned` is a base level contract that assigns an `owner` that can be  later changed\",\"methods\":{\"changeOwner(address)\":{\"params\":{\"_newOwner\":\"The address of the new owner. 0x0 can be used to create  an unowned neutral vault, however that cannot be undone\"}}}},\"userdoc\":{\"methods\":{\"changeOwner(address)\":{\"notice\":\"`owner` can step down and assign some other address to this role\"},\"constructor\":\"The Constructor assigns the message sender to be `owner`\"}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Owned.sol\":\"Owned\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Owned.sol\":{\"keccak256\":\"0xfabef7d88203bb4f979b616755c691043079c1d38e93b9465a7f675d90013813\",\"urls\":[\"bzzr://83f58cef6a4cf7956a91f15a45abe9e59727d100b7aeb665afae3abf2c1181cd\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b031916331790556101c3806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806379ba5097146100515780638da5cb5b1461005b578063a6f9dae11461007f578063d4ee1d90146100a5575b600080fd5b6100596100ad565b005b6100636100e5565b604080516001600160a01b039092168252519081900360200190f35b6100596004803603602081101561009557600080fd5b50356001600160a01b03166100f4565b610063610162565b6001546001600160a01b03163314156100e357600154600080546001600160a01b0319166001600160a01b039092169190911790555b565b6000546001600160a01b031681565b6000546001600160a01b0316331461014057604051600160e51b62461bcd0281526004018080602001828103825260268152602001806101726026913960400191505060405180910390fd5b600180546001600160a01b0319166001600160a01b0392909216919091179055565b6001546001600160a01b03168156fe204552524f523a2073656e64657220697320646966666572656e74207468616e206f776e6572a165627a7a72305820b81ae7f52a9a07e41c7211cbe8e9751cef2af2d2038849b5f7ac6deb5c7ca9980029",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806379ba5097146100515780638da5cb5b1461005b578063a6f9dae11461007f578063d4ee1d90146100a5575b600080fd5b6100596100ad565b005b6100636100e5565b604080516001600160a01b039092168252519081900360200190f35b6100596004803603602081101561009557600080fd5b50356001600160a01b03166100f4565b610063610162565b6001546001600160a01b03163314156100e357600154600080546001600160a01b0319166001600160a01b039092169190911790555b565b6000546001600160a01b031681565b6000546001600160a01b0316331461014057604051600160e51b62461bcd0281526004018080602001828103825260268152602001806101726026913960400191505060405180910390fd5b600180546001600160a01b0319166001600160a01b0392909216919091179055565b6001546001600160a01b03168156fe204552524f523a2073656e64657220697320646966666572656e74207468616e206f776e6572a165627a7a72305820b81ae7f52a9a07e41c7211cbe8e9751cef2af2d2038849b5f7ac6deb5c7ca9980029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":false,\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"changeOwner\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"newOwner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"`Owned` is a base level contract that assigns an `owner` that can be  later changed\",\"methods\":{\"changeOwner(address)\":{\"params\":{\"_newOwner\":\"The address of the new owner. 0x0 can be used to create  an unowned neutral vault, however that cannot be undone\"}}}},\"userdoc\":{\"methods\":{\"changeOwner(address)\":{\"notice\":\"`owner` can step down and assign some other address to this role\"},\"constructor\":\"The Constructor assigns the message sender to be `owner`\"}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Owned.sol\":\"Owned\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Owned.sol\":{\"keccak256\":\"0xfabef7d88203bb4f979b616755c691043079c1d38e93b9465a7f675d90013813\",\"urls\":[\"bzz-raw://a7efc7a78375d1c8249015cd7aaae436739d7a6585761da94bc1fdd68c186efe\",\"dweb:/ipfs/QmeCCsJjzNrbDB9N83w17dG92YnY3jTCr59AgZqGUr28eG\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b031916331790556101c9806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806379ba5097146100515780638da5cb5b1461005b578063a6f9dae11461007f578063d4ee1d90146100a5575b600080fd5b6100596100ad565b005b6100636100e5565b604080516001600160a01b039092168252519081900360200190f35b6100596004803603602081101561009557600080fd5b50356001600160a01b03166100f4565b61006361015f565b6001546001600160a01b03163314156100e357600154600080546001600160a01b0319166001600160a01b039092169190911790555b565b6000546001600160a01b031681565b6000546001600160a01b0316331461013d5760405162461bcd60e51b815260040180806020018281038252602681526020018061016f6026913960400191505060405180910390fd5b600180546001600160a01b0319166001600160a01b0392909216919091179055565b6001546001600160a01b03168156fe204552524f523a2073656e64657220697320646966666572656e74207468616e206f776e6572a265627a7a72315820b585e9d10939e88c51feb418d37ff5f0805b842f93fb21408d8c1d993ab5c26c64736f6c634300050c0032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806379ba5097146100515780638da5cb5b1461005b578063a6f9dae11461007f578063d4ee1d90146100a5575b600080fd5b6100596100ad565b005b6100636100e5565b604080516001600160a01b039092168252519081900360200190f35b6100596004803603602081101561009557600080fd5b50356001600160a01b03166100f4565b61006361015f565b6001546001600160a01b03163314156100e357600154600080546001600160a01b0319166001600160a01b039092169190911790555b565b6000546001600160a01b031681565b6000546001600160a01b0316331461013d5760405162461bcd60e51b815260040180806020018281038252602681526020018061016f6026913960400191505060405180910390fd5b600180546001600160a01b0319166001600160a01b0392909216919091179055565b6001546001600160a01b03168156fe204552524f523a2073656e64657220697320646966666572656e74207468616e206f776e6572a265627a7a72315820b585e9d10939e88c51feb418d37ff5f0805b842f93fb21408d8c1d993ab5c26c64736f6c634300050c0032",
   "sourceMap": "202:904:4:-;;;368:56;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;399:5:4;:18;;-1:-1:-1;;;;;;399:18:4;407:10;399:18;;;202:904;;;;;;",
-  "deployedSourceMap": "202:904:4:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;202:904:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;985:119;;;:::i;:::-;;223:28;;;:::i;:::-;;;;-1:-1:-1;;;;;223:28:4;;;;;;;;;;;;;;876:102;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;876:102:4;-1:-1:-1;;;;;876:102:4;;:::i;257:31::-;;;:::i;985:119::-;1047:8;;-1:-1:-1;;;;;1047:8:4;1033:10;:22;1029:69;;;1079:8;;;1071:16;;-1:-1:-1;;;;;;1071:16:4;-1:-1:-1;;;;;1079:8:4;;;1071:16;;;;;;1029:69;985:119::o;223:28::-;;;-1:-1:-1;;;;;223:28:4;;:::o;876:102::-;576:5;;-1:-1:-1;;;;;576:5:4;562:10;:19;554:70;;;;-1:-1:-1;;;;;554:70:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;951:8;:20;;-1:-1:-1;;;;;;951:20:4;-1:-1:-1;;;;;951:20:4;;;;;;;;;;876:102::o;257:31::-;;;-1:-1:-1;;;;;257:31:4;;:::o",
+  "deployedSourceMap": "202:904:4:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;202:904:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;985:119;;;:::i;:::-;;223:28;;;:::i;:::-;;;;-1:-1:-1;;;;;223:28:4;;;;;;;;;;;;;;876:102;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;876:102:4;-1:-1:-1;;;;;876:102:4;;:::i;257:31::-;;;:::i;985:119::-;1047:8;;-1:-1:-1;;;;;1047:8:4;1033:10;:22;1029:69;;;1079:8;;;1071:16;;-1:-1:-1;;;;;;1071:16:4;-1:-1:-1;;;;;1079:8:4;;;1071:16;;;;;;1029:69;985:119::o;223:28::-;;;-1:-1:-1;;;;;223:28:4;;:::o;876:102::-;576:5;;-1:-1:-1;;;;;576:5:4;562:10;:19;554:70;;;;-1:-1:-1;;;554:70:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;951:8;:20;;-1:-1:-1;;;;;;951:20:4;-1:-1:-1;;;;;951:20:4;;;;;;;;;;876:102::o;257:31::-;;;-1:-1:-1;;;;;257:31:4;;:::o",
   "source": "pragma solidity >0.4.99 <0.6.0;\n\n//este contrato valida que sólo pueda ejecutar transacciones el owner.\n/// @dev `Owned` is a base level contract that assigns an `owner` that can be\n///  later changed\ncontract Owned {\n    address payable public owner;\n    address payable public newOwner;\n\n    /// @notice The Constructor assigns the message sender to be `owner`\n    constructor() public {\n        owner = msg.sender;\n    }\n\n    /// @dev `owner` is the only address that can call a function with this\n    /// modifier\n    modifier onlyOwner() {\n        require(msg.sender == owner, \" ERROR: sender is different than owner\");\n        _;\n    }\n \n    /// @notice `owner` can step down and assign some other address to this role\n    /// @param _newOwner The address of the new owner. 0x0 can be used to create\n    ///  an unowned neutral vault, however that cannot be undone\n    function changeOwner(address payable _newOwner) public onlyOwner {\n        newOwner = _newOwner;\n    }\n\n\n    function acceptOwnership() public {\n        if (msg.sender == newOwner) {\n            owner = newOwner;\n        }\n    }\n}\n",
   "sourcePath": "C:\\Users\\Oriol\\Downloads\\ethereum\\projects\\ICO\\contracts\\Owned.sol",
   "ast": {
@@ -1320,11 +1323,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.17",
-  "updatedAt": "2019-11-05T15:01:47.179Z",
+  "schemaVersion": "3.0.18",
+  "updatedAt": "2019-11-11T11:20:32.884Z",
   "devdoc": {
     "details": "`Owned` is a base level contract that assigns an `owner` that can be  later changed",
     "methods": {

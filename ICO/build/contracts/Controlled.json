@@ -2,11 +2,18 @@
   "contractName": "Controlled",
   "abi": [
     {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
       "constant": true,
       "inputs": [],
       "name": "controller",
       "outputs": [
         {
+          "internalType": "address payable",
           "name": "",
           "type": "address"
         }
@@ -16,15 +23,10 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
       "constant": false,
       "inputs": [
         {
+          "internalType": "address payable",
           "name": "_newController",
           "type": "address"
         }
@@ -36,11 +38,11 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_newController\",\"type\":\"address\"}],\"name\":\"changeController\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"controller\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controlled.sol\":\"Controlled\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controlled.sol\":{\"keccak256\":\"0xa76f33ede05e694faa2e0143f6ff0865d18e129ace1c473da1450808e85a79f4\",\"urls\":[\"bzzr://1d5e86439ea4ee26aac314e3138cf914d45f2dd34a08deec3677cfde6c314512\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b0319163317905561015b806100326000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80633cebb8231461003b578063f77c479114610063575b600080fd5b6100616004803603602081101561005157600080fd5b50356001600160a01b0316610087565b005b61006b6100f5565b604080516001600160a01b039092168252519081900360200190f35b6000546001600160a01b031633146100d357604051600160e51b62461bcd02815260040180806020018281038252602b815260200180610105602b913960400191505060405180910390fd5b600080546001600160a01b0319166001600160a01b0392909216919091179055565b6000546001600160a01b03168156fe204552524f523a2073656e64657220697320646966666572656e74207468616e20636f6e74726f6c6c6572a165627a7a72305820a5e30033a2b8da6c1edf1df4d93d97464945ce1c61684cb624babfee7713c4850029",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80633cebb8231461003b578063f77c479114610063575b600080fd5b6100616004803603602081101561005157600080fd5b50356001600160a01b0316610087565b005b61006b6100f5565b604080516001600160a01b039092168252519081900360200190f35b6000546001600160a01b031633146100d357604051600160e51b62461bcd02815260040180806020018281038252602b815260200180610105602b913960400191505060405180910390fd5b600080546001600160a01b0319166001600160a01b0392909216919091179055565b6000546001600160a01b03168156fe204552524f523a2073656e64657220697320646966666572656e74207468616e20636f6e74726f6c6c6572a165627a7a72305820a5e30033a2b8da6c1edf1df4d93d97464945ce1c61684cb624babfee7713c4850029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"_newController\",\"type\":\"address\"}],\"name\":\"changeController\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"controller\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controlled.sol\":\"Controlled\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controlled.sol\":{\"keccak256\":\"0xa76f33ede05e694faa2e0143f6ff0865d18e129ace1c473da1450808e85a79f4\",\"urls\":[\"bzz-raw://c5299d6745985d6a94104111ab1d0803460b89420126c48181549034fd6a7452\",\"dweb:/ipfs/QmbFhKQ5s6DeytTN1MkV9Vuwhf8fZbQ68wPWYJhg2oCup4\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b03191633179055610161806100326000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80633cebb8231461003b578063f77c479114610063575b600080fd5b6100616004803603602081101561005157600080fd5b50356001600160a01b0316610087565b005b61006b6100f2565b604080516001600160a01b039092168252519081900360200190f35b6000546001600160a01b031633146100d05760405162461bcd60e51b815260040180806020018281038252602b815260200180610102602b913960400191505060405180910390fd5b600080546001600160a01b0319166001600160a01b0392909216919091179055565b6000546001600160a01b03168156fe204552524f523a2073656e64657220697320646966666572656e74207468616e20636f6e74726f6c6c6572a265627a7a72315820eb40666bda95ef1bd55a4292ade3dbc4f4925ec1e5bebbc34568f1ca534159d264736f6c634300050c0032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80633cebb8231461003b578063f77c479114610063575b600080fd5b6100616004803603602081101561005157600080fd5b50356001600160a01b0316610087565b005b61006b6100f2565b604080516001600160a01b039092168252519081900360200190f35b6000546001600160a01b031633146100d05760405162461bcd60e51b815260040180806020018281038252602b815260200180610102602b913960400191505060405180910390fd5b600080546001600160a01b0319166001600160a01b0392909216919091179055565b6000546001600160a01b03168156fe204552524f523a2073656e64657220697320646966666572656e74207468616e20636f6e74726f6c6c6572a265627a7a72315820eb40666bda95ef1bd55a4292ade3dbc4f4925ec1e5bebbc34568f1ca534159d264736f6c634300050c0032",
   "sourceMap": "309:491:0:-;;;375:61;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;406:10:0;:23;;-1:-1:-1;;;;;;406:23:0;419:10;406:23;;;309:491;;;;;;",
-  "deployedSourceMap": "309:491:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;309:491:0;;;;;;;;;;;;;;;;;;;;;;;;583:215;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;583:215:0;-1:-1:-1;;;;;583:215:0;;:::i;:::-;;335:33;;;:::i;:::-;;;;-1:-1:-1;;;;;335:33:0;;;;;;;;;;;;;;583:215;501:10;;-1:-1:-1;;;;;501:10:0;487;:24;478:81;;;;-1:-1:-1;;;;;478:81:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;764:10;:27;;-1:-1:-1;;;;;;764:27:0;-1:-1:-1;;;;;764:27:0;;;;;;;;;;583:215::o;335:33::-;;;-1:-1:-1;;;;;335:33:0;;:::o",
+  "deployedSourceMap": "309:491:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;309:491:0;;;;;;;;;;;;;;;;;;;;;;;;583:215;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;583:215:0;-1:-1:-1;;;;;583:215:0;;:::i;:::-;;335:33;;;:::i;:::-;;;;-1:-1:-1;;;;;335:33:0;;;;;;;;;;;;;;583:215;501:10;;-1:-1:-1;;;;;501:10:0;487;:24;478:81;;;;-1:-1:-1;;;478:81:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;764:10;:27;;-1:-1:-1;;;;;;764:27:0;-1:-1:-1;;;;;764:27:0;;;;;;;;;;583:215::o;335:33::-;;;-1:-1:-1;;;;;335:33:0;;:::o",
   "source": "pragma solidity >0.4.99 <0.6.0;\n\n// Controlled for Token\n//El contrato Token está controlado por alguien, en este caso por una empresa que ofrece el ICO (initial coin offering - Oferta inicial de monedas)\n//Cada vez que se pida comprar Tokens este contrato se lo debe consultar a la ICO si se puede comprar.\ncontract Controlled {\n    address payable public controller;\n\n    constructor() public {\n        controller = msg.sender;\n    }\n\n    modifier onlyController() {\n        require (msg.sender == controller, \" ERROR: sender is different than controller\");\n        _;\n    }\n\n    function changeController(address payable _newController) public onlyController { //nos permite cambiar el controlador,\n        //sólo lo puede hacer el actual controlador\n        controller = _newController;\n    }\n}\n",
   "sourcePath": "C:\\Users\\Oriol\\Downloads\\ethereum\\projects\\ICO\\contracts\\Controlled.sol",
   "ast": {
@@ -937,11 +939,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.17",
-  "updatedAt": "2019-11-05T15:01:47.171Z",
+  "schemaVersion": "3.0.18",
+  "updatedAt": "2019-11-11T11:20:32.874Z",
   "devdoc": {
     "methods": {}
   },

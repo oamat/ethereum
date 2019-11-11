@@ -1,5 +1,6 @@
 const ICO = artifacts.require("ICO");
 const Token = artifacts.require("Token");
+const value = web3.utils.toWei(web3.utils.toBN(5), 'ether');
 
 contract("ICO", function (accounts) {  // los accounts son los de la red, podemos coger el contrato que queramos de la red 
   const ownerAccount = accounts[0]; //owner account asumirá gastos por gas
@@ -8,7 +9,7 @@ contract("ICO", function (accounts) {  // los accounts son los de la red, podemo
 
   let token;
   let ico;
-  var event;
+  var transactionEvent;
 
   it("Deploys all contracts and initialize ICO", async function () { //desplegar contratos
     token = await Token.new();
@@ -21,7 +22,7 @@ contract("ICO", function (accounts) {  // los accounts son los de la red, podemo
       ICOAccount
     );
   });
-    
+
 
   it("Does the first buy", async function () { //primera compra
     const etherTH1before = await web3.eth.getBalance(TokenHolderAccount);
@@ -29,7 +30,7 @@ contract("ICO", function (accounts) {  // los accounts son los de la red, podemo
     console.log("Holder " + TokenHolderAccount + " Account have before transfer : " + balanceEth + " Ether");
 
     await token.sendTransaction({  // es una transacción nueva, no es ningún método existente, lo pasará a método vacio payable
-      value: web3.utils.toWei(web3.utils.toBN(5), 'ether'),
+      value: value,
       gas: "300000",
       gasPrice: "20000000000",
       from: TokenHolderAccount
@@ -59,30 +60,25 @@ contract("ICO", function (accounts) {  // los accounts son los de la red, podemo
   });
 
 
-  it("Write logs", async function () { //escribimos logs de contract (event)
-
-    // let event = await token.TransferLog();
-    // console.log(event);
-
-    var fs = require('fs');
-    var jsonFile = "build/contracts/Token.json";
-    var parsed= JSON.parse(fs.readFileSync(jsonFile));
-    var abi = parsed.abi;
-
-    // var event = new web3.eth.Contract(abi).at(accounts[0]);
-
-    // event.TransferLog(function (err, result) {
-    //   if (err) return error(err);    
-    //   log("event: " + result.args); 
-    // });
-    
-
-    // assert.equal(event.logs.length, 1, "should have received one event");
-    // assert.equal(event.logs[0].event, "TransferLog", "event name should be logGreetings");
-    // assert.equal(event.logs[0].args.value, "5000000000000000000", "id must be 5000000000000000000");
-
-
+  it("transferFrom to ICO Account", async () => { //escribimos logs de contract (event)
+    transactionEvent = await token.transfer(ICOAccount, value);  //transfer(address _to, uint256 _value)
+    assert.exists(transactionEvent.tx, 'transactionEvent.tx is neither `null` nor `undefined`');
+    assert.lengthOf(transactionEvent.tx, 66, 'transaction.tx has a length of 66');
+    //console.log("transactionHash de transferFrom :" + transactionEvent.tx);
   });
+
+  it("Watch Last Events in transfer(address _to, uint256 _value) method", async () => { //escribimos logs de contract (event)
+   //console.log(transactionEvent.logs[0]);
+    assert.equal(transactionEvent.logs.length, 1, "should have received one event");
+    assert.equal(transactionEvent.logs[0].event, "TransferLog", "event name should be logGreetings");
+    let value = await web3.utils.fromWei(transactionEvent.logs[0].args._value, "ether")
+    assert.equal(value, 5, "id must be 5.");
+  });
+
+
+
+
+
 
 
   function hex_to_ascii(str1) {

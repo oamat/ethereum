@@ -5,6 +5,7 @@
       "constant": false,
       "inputs": [
         {
+          "internalType": "address",
           "name": "_th",
           "type": "address"
         }
@@ -12,6 +13,7 @@
       "name": "proxyPayment",
       "outputs": [
         {
+          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -21,7 +23,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_th\",\"type\":\"address\"}],\"name\":\"proxyPayment\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controller.sol\":\"Controller\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controller.sol\":{\"keccak256\":\"0x556aa455dabaee79d9705f40c02a6b2aae2cf720df28a2a37f1a40f3a4acc2e9\",\"urls\":[\"bzzr://fdf9d4cccabaa139032ee8c47446a841ee9295ebac35aabb6ca48b347c0c93b5\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_th\",\"type\":\"address\"}],\"name\":\"proxyPayment\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controller.sol\":\"Controller\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Oriol/Downloads/ethereum/projects/ICO/contracts/Controller.sol\":{\"keccak256\":\"0x556aa455dabaee79d9705f40c02a6b2aae2cf720df28a2a37f1a40f3a4acc2e9\",\"urls\":[\"bzz-raw://019d245246bf4f71a1cdf9782aeb1d872bc9394bf7dd471fc312cee38a7d2947\",\"dweb:/ipfs/QmWeGJjU9ett6TwNFqEkqaXcMV3788w2gn1RfesMS4Qtuk\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
@@ -282,11 +284,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.17",
-  "updatedAt": "2019-11-05T15:01:47.174Z",
+  "schemaVersion": "3.0.18",
+  "updatedAt": "2019-11-11T11:20:32.876Z",
   "devdoc": {
     "methods": {}
   },

@@ -18,7 +18,7 @@ contract("Apuestas", function (accounts) {  // los accounts son los de la red, p
 
   const jugador1 = accounts[1]; // jugador1
   const jugador2 = accounts[2]; // jugador2
-  const value = 5e+18;
+  const value = web3.utils.toBN(5);
   var addressContract;
   let apuestas;
   var balanceContrato;

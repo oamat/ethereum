@@ -1,4 +1,4 @@
-var Apuestas = artifacts.require("Apuestas");
+var Apuestas = artifacts.require("Apuestas"); 
 var CompraArbitrada = artifacts.require("CompraArbitrada");
 var GreetingsLog = artifacts.require("GreetingsLog");
 
