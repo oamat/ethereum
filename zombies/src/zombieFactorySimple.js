@@ -1,9 +1,9 @@
-/******  This code call ZombieFactory.sol with web3js & interact with blockchain. 
+/******  This code call ZombieFactorySimple.sol with web3js & interact with blockchain. 
 
- * IMPORTANt: With Ganache started , you need to change the ZombieFactory contract address.
+ * IMPORTANt: With Ganache started , you need to change the ZombieFactorySimple contract address.
  * 
  * use:
- *   node .\src\zombieFactory.js 
+ *   node .\src\zombieFactorySimple.js 
  * 
  * ****/
 
@@ -14,27 +14,27 @@ console.log("Using web3.version: " + web3.version);
 
 // Así es como accederiamos a nuestro contrato:
 var fs = require('fs');
-var path = "./build/contracts/ZombieFactory.json";
+var path = "./build/contracts/ZombieFactorySimple.json";
 var json = JSON.parse(fs.readFileSync(path));
 var abi = json.abi; /* abi generado por el compilador solc usando truffle */
-//var contractAddress = "0x310E6BD3CB00Fb8474C6B752684bcfe17ed6fc56"; /* nuestra dirección del contrato en Ethereum después de implementarlo */
-var contractAddress = "0xEE9e6c048667120200b47cBBa56Ad3C64054A3B5";
+var contractAddress = "0x310E6BD3CB00Fb8474C6B752684bcfe17ed6fc56"; /* nuestra dirección del contrato en Ethereum después de implementarlo */
+//var contractAddress = "0xEE9e6c048667120200b47cBBa56Ad3C64054A3B5";
 var name = "MyNameOAF"; // a testing name
 
 web3.eth.getAccounts().then(async (accounts) => {
   var from = accounts[0];
   console.log(" Wallet address : " + from);
 
-  var zombieFactory = await new web3.eth.Contract(abi, contractAddress, from, (error, result) =>{
+  var zombieFactorySimple = await new web3.eth.Contract(abi, contractAddress, from, (error, result) =>{
     if (error) console.log ("***** ERROR *****" + error.message);
      }); //instanciamos el contrato
-  console.log(" Smart Contract address : " + zombieFactory.options.address);    //we need to use myContract.methods.myMethod().send() or -> myContract.methods.myMethod().send()
+  console.log(" Smart Contract address : " + zombieFactorySimple.options.address);    //we need to use myContract.methods.myMethod().send() or -> myContract.methods.myMethod().send()
 
 
-  // Llama a la función `createRandomZombie(name); del contrato zombieFactory: genera un zombie aleatorio
+  // Llama a la función `createRandomZombie(name); del contrato zombieFactorySimple: genera un zombie aleatorio
   var transaction;
   for (var i = 0; i < 3; i++) {
-    transaction = await zombieFactory.methods.createRandomZombie(name + i).send({ from: from }, function (error, transactionHash) {
+    transaction = await zombieFactorySimple.methods.createRandomZombie(name + i).send({ from: from }, function (error, transactionHash) {
       if (error) console.log(error);
       //console.log(transactionHash);  result es la transactionHash
     });
@@ -42,7 +42,7 @@ web3.eth.getAccounts().then(async (accounts) => {
   }
 
 
-  var arraylength = await zombieFactory.methods.getCount().call({ from: from }, function (error, result) {
+  var arraylength = await zombieFactorySimple.methods.getCount().call({ from: from }, function (error, result) {
     if (error) console.log(error);
     // console.log(result); // lo que devuelve el método.
 
@@ -50,7 +50,7 @@ web3.eth.getAccounts().then(async (accounts) => {
   console.log("El Array de Zombies tiene un tamaño actual de " + arraylength + " Zombies");
 
 
-  var zombie = await zombieFactory.methods.getZombie(arraylength - 1).call({ from: from }, function (error, result) {
+  var zombie = await zombieFactorySimple.methods.getZombie(arraylength - 1).call({ from: from }, function (error, result) {
     if (error) console.log(error);
     return (result);
   });
@@ -61,13 +61,13 @@ web3.eth.getAccounts().then(async (accounts) => {
 
   //** Events doesn't work yet, with truffle 5.0 ***/
 
-  // zombieFactory.events.allEvents((error, event) => {
+  // zombieFactorySimple.events.allEvents((error, event) => {
   //   if (error) console.error(error);  
   //   console.log(event);
   // });
 
 
-  // zombieFactory.events.NewZombie({
+  // zombieFactorySimple.events.NewZombie({
   //   filter: { myIndexedParam: [0, 23] }, // Using an array means OR: e.g. 20 or 23
   //   fromBlock: 0
   // },

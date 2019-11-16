@@ -1,41 +1,41 @@
-// zombieFactory.sol contract to be tested
+// zombieFactorySimple.sol contract to be tested
 /******  With Ganache started 
  * 
  * use:
- *   node .\test\zombieFactory.js 
+ *   node .\test\zombieFactorySimple.js 
  * Or
- *   truffle test .\test\zombieFactory.js
+ *   truffle test .\test\zombieFactorySimple.js
  * 
  * ****/
 const assert = require('chai').assert;
 
-var ZombieFactory = artifacts.require("ZombieFactory"); //la manera de instanciar de truffle. 
+var ZombieFactorySimple = artifacts.require("ZombieFactorySimple"); //la manera de instanciar de truffle. 
 
 
-contract("ZombieFactory", async (accounts) => {  // los accounts son los de la red, podemos coger el wallet que queramos de la red 
+contract("ZombieFactorySimple", async (accounts) => {  // los accounts son los de la red, podemos coger el wallet que queramos de la red 
 
     const from = accounts[0]; // account0
-    var zombieFactory;
+    var zombieFactorySimple;
     var transaction;
 
-    it("Create New zombieFactory Smart Contract with truffle.", async () => { //Se crea el contato en ganache 
-        zombieFactory = await ZombieFactory.new(); // mejor siempre crear uno nuevo. con address nueva
-        assert.typeOf(zombieFactory.address, 'string', "zombieFactory.address is a string");
-        assert.lengthOf(zombieFactory.address, 42, 'zombieFactory.address has a length of 48');
-        console.log("NEW Contract zombieFactory.address = " + zombieFactory.address);
-        //console.log(zombieFactory);
+    it("Create New zombieFactorySimple Smart Contract with truffle.", async () => { //Se crea el contato en ganache 
+        zombieFactorySimple = await ZombieFactorySimple.new(); // mejor siempre crear uno nuevo. con address nueva
+        assert.typeOf(zombieFactorySimple.address, 'string', "zombieFactorySimple.address is a string");
+        assert.lengthOf(zombieFactorySimple.address, 42, 'zombieFactorySimple.address has a length of 48');
+        console.log("NEW Contract zombieFactorySimple.address = " + zombieFactorySimple.address);
+        //console.log(zombieFactorySimple);
     });
 
     it("Create 3 Zombie with createRandomZombie(name) method.", async () => { //crear un zombie
-        transaction = await zombieFactory.createRandomZombie("myName");
+        transaction = await zombieFactorySimple.createRandomZombie("myName");
         assert.lengthOf(transaction.tx, 66, 'transaction.tx has a length of 66');
         console.log("transactionHash del primer Zombie :" + transaction.tx);
 
-        transaction = await zombieFactory.createRandomZombie("myName");
+        transaction = await zombieFactorySimple.createRandomZombie("myName");
         assert.lengthOf(transaction.tx, 66, 'transaction.tx has a length of 66');
         console.log("transactionHash del primer Zombie :" + transaction.tx);
 
-        transaction = await zombieFactory.createRandomZombie("myName");
+        transaction = await zombieFactorySimple.createRandomZombie("myName");
         assert.lengthOf(transaction.tx, 66, 'transaction.tx has a length of 66');
         console.log("transactionHash del primer Zombie :" + transaction.tx);
 
