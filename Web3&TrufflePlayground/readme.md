@@ -1,4 +1,6 @@
-# BlockChain OPCodes application with Ethereum & Solidity.  
+# 2 test in this project: 
+## Web3 Manual Transaction without Solidity code. 
+## Truffle test for see OPCodes in Solidity application.  
     FrondEnt doesn't exist yet, you can only do the test so far.
 
 ## Stack
@@ -20,6 +22,8 @@ The better opcion is install the node modules globally.
 start Ganache
 truffle compile
 truffle migrate --network ganache  (!!Copy&paste contract address to zombieFactory.js)
+
+node .\src\web3TxWithoutContracts.js 
 
 truffle test .\test\PayableContract.js --network ganache
 
