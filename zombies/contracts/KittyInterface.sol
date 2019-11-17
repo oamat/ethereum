@@ -1,6 +1,6 @@
 pragma solidity >0.4.99 <0.6.0;
 
-// esta Interface permite a un contrato diferente: ZombieFeeding llamar al contrato Kitty
+// esta Interface permite a un contrato diferente: ZombieFeeding llamar al contrato KittyFactory
 contract KittyInterface {
  function getKitty(uint256 _id) external view returns (
     bool isGestating,

@@ -17,10 +17,21 @@ The better opcion is install the node modules globally.
 ## Steps
 start Ganache
 truffle compile
-truffle migrate --network ganache  (!!Copy&paste contract address to zombieFactory.js)
 
-node .\src\zombieFactory.js    (as a posible frontEnd or BE, you need the address contract)
+truffle migrate --network ganache  (!! you can Copy&paste contract address for "src" codes)
+                    Only need migrate for "src/codes", not for truffle test because in truffle test we deploy contracts. 
 
-truffle test .\test\zombieFactory.js --network ganache   (typical basic test, you don't ned address contract)
+truffle test --network ganache    (for execute all test, you don't need address contract because we deploy new contracts)
+or 
+truffle test .\test\zombieFactorySimple.js --network ganache 
+truffle test .\test\zombieFeeding.js --network ganache  
+
+
+
+
+
+node .\src\zombieFactorySimple.js    (as a posible frontEnd or BE, you need the address contract,Copy&paste contract address )
+
+
 
 

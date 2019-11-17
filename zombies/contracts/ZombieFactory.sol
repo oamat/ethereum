@@ -30,10 +30,18 @@ contract ZombieFactory {
     }
 
     function createRandomZombie(string memory _name) public {
-        require(ownerZombieCount[msg.sender] == 0, "The counter of thi contract must not be 0.");
+        //require(ownerZombieCount[msg.sender] == 0, "The counter of this contract must not be 0.");
         uint randDna = _generateRandomDna(_name);
         randDna = randDna - randDna % 100;
         _createZombie(_name, randDna);
+    }
+
+    function getZombie(uint _index) public view returns (uint id, string memory name, uint dna) { //devuelve json con nombres definidos.
+        return (_index, zombies[_index].name, zombies[_index].dna); //necesitamos devolver los struct así.
+    }
+
+    function getCount() public view returns (uint count) { //Devolvemos el tamaño del array
+        return zombies.length;
     }
 
 }

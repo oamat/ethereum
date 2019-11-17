@@ -2,8 +2,6 @@
 /******  With Ganache started 
  * 
  * use:
- *   node .\test\zombieFactorySimple.js 
- * Or
  *   truffle test .\test\zombieFactorySimple.js
  * 
  * ****/

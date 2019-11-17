@@ -1,7 +1,7 @@
 
 pragma solidity >0.4.99 <0.6.0;
 
-contract KittyContract {
+contract KittyFactory {
 
 uint dnaDigits = 16; //digitos del dna
 uint dnaModulus = 10 ** dnaDigits; //Modulo.
@@ -19,6 +19,7 @@ struct Kitty { //struct de un Kitty
     uint256 generation;
     uint256 genes;
     string name;
+    string animalType;
     } //Automáticamente se genera la 'function Kitty(isGestarting) external view returns struct' por ser public.
 
 Kitty[] public kitties; //Array dinámico de N struct Kitty
@@ -26,7 +27,7 @@ Kitty[] public kitties; //Array dinámico de N struct Kitty
         //pero Al ser un array de structs nos dará problemas si externamente queremos que nos devuelva el Array o un Struct.
 
 
-event NewKitty(uint kittyId, string name, uint dna); // declara un evento del nuevo kitty
+event NewKitty(uint kittyId, string name, uint dna, string animalType); // declara un evento del nuevo kitty
 
 //**PUBLIC FUNCTIONS**//
 
@@ -41,7 +42,8 @@ event NewKitty(uint kittyId, string name, uint dna); // declara un evento del nu
     uint256 sireId,
     uint256 generation,
     uint256 genes,
-    string memory name
+    string memory name,
+    string memory animalType
   ) {
     Kitty storage kit = kitties[_id];
 
@@ -57,9 +59,10 @@ event NewKitty(uint kittyId, string name, uint dna); // declara un evento del nu
     generation = uint256(kit.generation);
     genes = kit.genes;
     name = kit.name;
+    animalType = kit.animalType;
   }
 
-  function createKitty(string memory _name) public {
+  function createRandomKitty(string memory _name) public {
         uint randDna = _generateRandomDna(_name);
         randDna = randDna - randDna % 100;
         _createKitty(_name, randDna);
@@ -67,8 +70,8 @@ event NewKitty(uint kittyId, string name, uint dna); // declara un evento del nu
 
 //**PRIVATE FUNCTIONS**//
  function _createKitty(string memory _name, uint _dna) internal {
-        uint id = kitties.push(Kitty(true,true,0,0,0,0,0,0,0,0,_dna,_name)) - 1;
-        emit NewKitty(id, _name, _dna);
+        uint id = kitties.push(Kitty(true,true,0,0,0,0,0,0,0,0,_dna,_name,"kitty")) - 1;
+        emit NewKitty(id, _name, _dna,"kitty");
     }
 
     function _generateRandomDna(string memory _str) private view returns (uint) {
