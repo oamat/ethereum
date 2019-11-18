@@ -7,18 +7,23 @@ contract ZombieFeeding is ZombieFactory {
   //solamente hay que compilar ZombieFeeding — debido a que este contrato es nuestro contrato final que hereda de ZombieFactory
         //ZombieFactory no es necesario.
 
-address owner;
 KittyInterface kittyContract;
 
 //**CONSTRUCTOR METHOD**//
   constructor(address _ckAddress) public { //Se va a decidir la interace
-        owner = msg.sender; // sólo el owner podrà decidir cambiar la address
+        //owner = msg.sender; // sólo el owner podrà decidir cambiar la address
         address ckAddress = _ckAddress;
         kittyContract = KittyInterface(ckAddress);
      }
 
 
+
 //**PUBLIC FUNCTIONS**//
+
+ function setKittyContractAddress(address _address) external onlyOwner {  // onlyOwner viene de Ownable.sol, zombieFactory hereda Ownable.
+    kittyContract = KittyInterface(_address);
+  }
+
   function feedOnKitty(uint _zombieId, uint _kittyId) public {
     uint kittyDna;
     string memory name;
@@ -51,6 +56,12 @@ KittyInterface kittyContract;
     for (uint i = 0; i < _ba.length; i++) _bytes[k++] = _ba[i];
     for (uint j = 0; j < _bb.length; j++) _bytes[k++] = _bb[j];
     return string(_bytes);
+}
+
+ function concat(string memory first, string memory second) internal pure returns (string memory name){
+    bytes memory a = bytes(first);
+    bytes memory b = bytes(second);
+    return string(abi.encodePacked(a, b));
 }
 
 }

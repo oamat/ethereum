@@ -97,13 +97,29 @@ contract("ZombieFeeding", async (accounts) => {  // los accounts son los de la r
         assert.notEqual(transaction.logs[0].args.dna, 0, "article name must be not equal to 0");
     });
 
-    it("Feeding Zombie with Kitty: feedOnKitty(zombieId, kittyId) method.", async () => {
+
+
+    it("Kitty getCount() and getKitty(_id) method.", async () => {
+        //llamaremos a ZombieFeeding para alimentar al Zombie con id=2, con el kitty id=2. 
+           //Generará un nuevo Zombie con id nuevo.
+           //Podemos llamar a métodos de ZombieFactory por que zombieFeeding hereda
+        let kittiesCount = await kittyFactory.getCount();
+        assert.equal(kittiesCount, 3, 'kitties creted must to be 3');
+        console.log("kitties total :" + kittiesCount );
+        console.log( await kittyFactory.getKitty(2) );
+     
+    });
+
+
+
+    it("Feeding last Zombie(2) with the last Kitty(2): feedOnKitty(zombieId, kittyId) method.", async () => {
         //llamaremos a ZombieFeeding para alimentar al Zombie con id=2, con el kitty id=2. 
            //Generará un nuevo Zombie con id nuevo.
            //Podemos llamar a métodos de ZombieFactory por que zombieFeeding hereda
         let zombiesCount = await zombieFeeding.getCount();
         assert.equal(zombiesCount, 3, 'zombies creted must to be 3');
         console.log("zombies total before feedOnKitty :" + zombiesCount );
+        console.log( await zombieFeeding.getZombie(2) );
 
         transaction = await zombieFeeding.feedOnKitty(2, 2);
         assert.lengthOf(transaction.tx, 66, 'transaction.tx has a length of 66');

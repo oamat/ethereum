@@ -62,6 +62,11 @@ event NewKitty(uint kittyId, string name, uint dna, string animalType); // decla
     animalType = kit.animalType;
   }
 
+
+  function getCount() public view returns (uint count) { //Devolvemos el tamaño del array
+        return kitties.length;
+    }
+
   function createRandomKitty(string memory _name) public {
         uint randDna = _generateRandomDna(_name);
         randDna = randDna - randDna % 100;
