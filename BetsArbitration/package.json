@@ -15,12 +15,12 @@
   "dependencies": {
     "ethereumjs-tx": "^2.1.1",
     "ethereumjs-util": "^6.1.0",
-    "truffle": "^5.0.44",
+    "truffle": "^5.7.9",
     "web3": "^1.2.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.2.2",
+    "mocha": "^6.2.3",
     "solc": "^0.5.12"
   }
 }
